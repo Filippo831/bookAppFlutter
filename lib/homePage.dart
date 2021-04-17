@@ -1,3 +1,4 @@
+import 'package:bookapp/components/navbar/navbar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Color(0x11ffffff),
             centerTitle: true,
         ),
+        bottomNavigationBar: NavbarComponent(),
       
     );
   }
