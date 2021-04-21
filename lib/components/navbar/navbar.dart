@@ -37,8 +37,8 @@ class NavbarComponent extends StatelessWidget {
             Center(
               child: Positioned(
                 child: Container(
-                  height: 80,
-                  width: 80,
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(50)),
