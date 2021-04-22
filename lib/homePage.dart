@@ -12,14 +12,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
         title: Text("bookApp"),
-        actions: [
-          Icon(Icons.umbrella_sharp),
-        ],
         elevation: 0,
-        backgroundColor: Color(0x11ffffff),
-        centerTitle: true,
+        backgroundColor: Color(0x00ffffff),
+        titleSpacing: 40,
       ),
       body: Container(
         child: Column(

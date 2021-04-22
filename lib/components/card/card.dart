@@ -20,20 +20,27 @@ class _CardComponentState extends State<CardComponent> {
         width: size.width * 0.8,
         child: Row(
           children: [
-            Icon(Icons.phone_sharp),
-            Spacer(),
-            Center(
-              child: Container(
-                height: 80,
-                child: Column(
-                  children: [
-                    Text("1984", textAlign: TextAlign.left),
-                    Spacer(),
-                    Text("george orwell", textAlign: TextAlign.left),
-                    Spacer(),
-                    Text("300 / 350", textAlign: TextAlign.left),
-                  ],
-                ),
+            Container(
+              width: 60,
+              height: size.height,
+              margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+              child: Icon(Icons.phone),
+            ),
+            Container(
+              height: 80,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("1984", textAlign: TextAlign.left),
+                  Spacer(),
+                  Text("george orwell", textAlign: TextAlign.left),
+                  Spacer(),
+                  Text("300 / 350", textAlign: TextAlign.left),
+                ],
               ),
             ),
             Spacer(),
