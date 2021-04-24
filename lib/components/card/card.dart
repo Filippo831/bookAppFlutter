@@ -12,8 +12,16 @@ class _CardComponentState extends State<CardComponent> {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-            color: Color(0xff555555),
-            borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: Color(0xff555555),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x55555555),
+              offset: Offset(6.0, 6.0),
+              blurRadius: 5.0,
+            ),
+          ],
+        ),
         padding: EdgeInsets.symmetric(horizontal: 20),
         margin: EdgeInsets.symmetric(vertical: 10),
         height: 100,

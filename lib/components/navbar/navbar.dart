@@ -38,13 +38,18 @@ class NavbarComponent extends StatelessWidget {
             Positioned(
               child: Center(
                 child: Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    height: 70,
+                    width: 70,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                    child: FlatButton(
+                      color: Theme.of(context).primaryColor,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/newBook');
+                      },
+                      child: Icon(Icons.plus_one),
+                    ),
                   ),
-                  child: Icon(Icons.add),
                 ),
               ),
             ),

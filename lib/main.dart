@@ -1,4 +1,5 @@
 import 'package:bookapp/homePage.dart';
+import 'package:bookapp/newBook.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xffdedacd),
       ),
       home: HomePage(),
+      routes: {
+        '/main': (BuildContext context) => HomePage(),
+        '/newBook': (BuildContext context) => NewBookComponent(),
+      },
     );
   }
 }

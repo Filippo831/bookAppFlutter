@@ -11,20 +11,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("bookApp"),
+        appBar: AppBar(
+            title: Text("bookApp",textAlign:TextAlign.left),
         elevation: 0,
         backgroundColor: Color(0x00ffffff),
         titleSpacing: 40,
       ),
-      body: Container(
-        child: Column(
-          children: [
-            CardComponent(),
-          ],
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            children: [
+              CardComponent(),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: NavbarComponent(),
+      bottomNavigationBar: SafeArea(
+        child: NavbarComponent(),
+      ),
     );
   }
 }
