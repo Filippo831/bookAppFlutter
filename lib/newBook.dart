@@ -1,3 +1,4 @@
+import 'package:bookapp/components/newBook/inputForm.dart';
 import 'package:flutter/material.dart';
 
 class NewBookComponent extends StatelessWidget {
@@ -10,13 +11,7 @@ class NewBookComponent extends StatelessWidget {
         backgroundColor: Color(0x00ffffff),
         titleSpacing: 40,
       ),
-      body: Column(
-        children: [
-          Container(
-            child: Text('ciao'),
-          ),
-        ],
-      ),
+      body: SafeArea(child: InputFormComponent()),
     );
   }
 }

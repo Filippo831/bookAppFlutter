@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 class CardComponent extends StatefulWidget {
   @override
+  final String title;
+  final String author;
+  final int pagesRead;
+  final int totalPages;
+  final bookImage;
+  const CardComponent({Key key, this.title, this.author, this.pagesRead, this.totalPages, this.bookImage}) : super(key:key);
   _CardComponentState createState() => _CardComponentState();
 }
 
@@ -36,23 +42,23 @@ class _CardComponentState extends State<CardComponent> {
                 color: Colors.red,
                 borderRadius: BorderRadius.all(Radius.circular(15)),
               ),
-              child: Icon(Icons.phone),
+              child: Icon(widget.bookImage),
             ),
             Container(
               height: 80,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("1984", textAlign: TextAlign.left),
+                  Text(widget.title, textAlign: TextAlign.left),
                   Spacer(),
-                  Text("george orwell", textAlign: TextAlign.left),
+                  Text(widget.author, textAlign: TextAlign.left),
                   Spacer(),
-                  Text("300 / 350", textAlign: TextAlign.left),
+                  Text("${widget.pagesRead} / ${widget.totalPages}", textAlign: TextAlign.left),
                 ],
               ),
             ),
             Spacer(),
-            Icon(Icons.book_sharp),
+            Icon(Icons.book),
           ],
         ),
       ),

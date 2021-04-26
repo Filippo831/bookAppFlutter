@@ -11,8 +11,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("bookApp",textAlign:TextAlign.left),
+      appBar: AppBar(
+        title: Text("bookApp", textAlign: TextAlign.left),
         elevation: 0,
         backgroundColor: Color(0x00ffffff),
         titleSpacing: 40,
@@ -21,7 +21,20 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           child: Column(
             children: [
-              CardComponent(),
+              CardComponent(
+                title: "1984",
+                author: 'George Orwell',
+                pagesRead: 234,
+                totalPages: 455,
+                bookImage: Icons.bookmark,
+              ),
+              CardComponent(
+                title: "1984",
+                author: 'George Orwell',
+                pagesRead: 234,
+                totalPages: 455,
+                bookImage: Icons.network_wifi,
+              ),
             ],
           ),
         ),
