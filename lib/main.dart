@@ -14,7 +14,23 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
+          backgroundColor: Color(0xff343434),
           primaryColor: Color(0xffdedacd),
+          accentColor: Color(0xff505050),
+          iconTheme: IconThemeData(
+              color: Color(0xffdedacd),
+          ),
+          buttonTheme: ButtonThemeData(buttonColor: Color(0xffdedacd)),
+          textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color(0xffdedacd)),
+                  textStyle: MaterialStateProperty.all<TextStyle>(
+                      TextStyle(
+                          color: Color(0xffdedacd),
+                      )
+                  )
+              ),
+          ),
       ),
       home: HomePage(),
       routes: {

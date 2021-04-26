@@ -16,13 +16,15 @@ class NavbarComponent extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   child: BottomNavigationBar(
-                    backgroundColor: Colors.red,
                     showUnselectedLabels: false,
                     showSelectedLabels: false,
                     iconSize: 20,
+                    backgroundColor: Theme.of(context).accentColor,
                     items: [
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.verified_user), title: Text("ciao")),
+                          icon: Icon(Icons.verified_user,
+                              color: Theme.of(context).primaryColor),
+                          title: Text("ciao")),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.list),
                         title: Text("ciao"),
@@ -38,16 +40,16 @@ class NavbarComponent extends StatelessWidget {
             Positioned(
               child: Center(
                 child: Container(
-                    height: 70,
-                    width: 70,
+                  height: 70,
+                  width: 70,
                   child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(50)),
-                    child: FlatButton(
-                      color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    child: TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/newBook');
                       },
-                      child: Icon(Icons.plus_one),
+                      child:
+                          Icon(Icons.add, color: Theme.of(context).accentColor),
                     ),
                   ),
                 ),
