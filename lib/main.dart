@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ListenableProvider<BookProvider>(create: (_) => BookProvider())
       ],
-      //export all the theme in a separate file 
+      // export all the theme in a separate file 
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
