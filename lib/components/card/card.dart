@@ -7,7 +7,14 @@ class CardComponent extends StatefulWidget {
   final int pagesRead;
   final int totalPages;
   final bookImage;
-  const CardComponent({Key key, this.title, this.author, this.pagesRead, this.totalPages, this.bookImage}) : super(key:key);
+  const CardComponent(
+      {Key key,
+      this.title,
+      this.author,
+      this.pagesRead,
+      this.totalPages,
+      this.bookImage})
+      : super(key: key);
   _CardComponentState createState() => _CardComponentState();
 }
 
@@ -34,6 +41,7 @@ class _CardComponentState extends State<CardComponent> {
         width: size.width * 0.8,
         child: Row(
           children: [
+            // left image
             Container(
               width: 60,
               height: size.height,
@@ -44,6 +52,7 @@ class _CardComponentState extends State<CardComponent> {
               ),
               child: Icon(widget.bookImage),
             ),
+            // texts in the middle
             Container(
               height: 80,
               child: Column(
@@ -53,11 +62,13 @@ class _CardComponentState extends State<CardComponent> {
                   Spacer(),
                   Text(widget.author, textAlign: TextAlign.left),
                   Spacer(),
-                  Text("${widget.pagesRead} / ${widget.totalPages}", textAlign: TextAlign.left),
+                  Text("${widget.pagesRead} / ${widget.totalPages}",
+                      textAlign: TextAlign.left),
                 ],
               ),
             ),
             Spacer(),
+            // read icon
             Icon(Icons.book),
           ],
         ),
