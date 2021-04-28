@@ -11,7 +11,7 @@ class NavbarComponent extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -22,16 +22,18 @@ class NavbarComponent extends StatelessWidget {
                     backgroundColor: Theme.of(context).accentColor,
                     items: [
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.verified_user,
-                              color: Theme.of(context).primaryColor),
-                          title: Text("ciao")),
+                        icon: Icon(Icons.verified_user,
+                            color: Theme.of(context).primaryColor),
+                        title: Text("ciao"),
+                      ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.list),
                         title: Text("ciao"),
                       ),
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.devices_other_sharp),
-                          title: Text("hi")),
+                        icon: Icon(Icons.devices_other_sharp),
+                        title: Text("hi"),
+                      ),
                     ],
                   ),
                 ),

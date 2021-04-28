@@ -13,7 +13,9 @@ class TextInputsComponent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Title'),
+                Container(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Text('Title'),),
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                     child: TextField(
