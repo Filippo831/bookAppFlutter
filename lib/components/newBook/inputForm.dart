@@ -1,4 +1,5 @@
 import 'package:bookapp/components/newBook/components/bookImageInput.dart';
+import 'package:bookapp/components/newBook/components/submitButtons.dart';
 import 'package:bookapp/components/newBook/components/textInputs.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class InputFormComponent extends StatelessWidget {
         children: [
           BookImageInputComponent(),
           TextInputsComponent(),
+          SubmitButtonsComponent(),
         ],
       ),
     );
