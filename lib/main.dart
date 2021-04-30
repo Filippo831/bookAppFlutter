@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ListenableProvider<BookProvider>(create: (_) => BookProvider())
       ],
-      // export all the theme in a separate file 
+      // export all the theme in a separate file
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -30,6 +30,12 @@ class MyApp extends StatelessWidget {
           buttonTheme: ButtonThemeData(buttonColor: Color(0xffdedacd)),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
+              side: MaterialStateProperty.all<BorderSide>(
+                BorderSide(
+                  color: Color(0xffdedacd),
+                  width: 3,
+                ),
+              ),
               backgroundColor: MaterialStateProperty.all(Color(0xffdedacd)),
               textStyle: MaterialStateProperty.all<TextStyle>(
                 TextStyle(
@@ -39,9 +45,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
-              filled: true,
-              fillColor: Color(0xff505050),
-          )
+            filled: true,
+            fillColor: Color(0xff505050),
+          ),
         ),
         home: HomePage(),
         routes: {
