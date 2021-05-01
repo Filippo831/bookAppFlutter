@@ -18,12 +18,16 @@ class TextInputsComponent extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  child: Text('Title'),
+                  child: Text(
+                    'Title',
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
                     decoration: InputDecoration(
+                      isDense: true,
                       hintText: 'Title...',
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -43,12 +47,16 @@ class TextInputsComponent extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  child: Text('Author'),
+                  child: Text(
+                    'Author',
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
                     decoration: InputDecoration(
+                      isDense: true,
                       hintText: 'Author...',
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -72,7 +80,10 @@ class TextInputsComponent extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  child: Text('Pages'),
+                  child: Text(
+                    'Pages',
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -80,6 +91,7 @@ class TextInputsComponent extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration: InputDecoration(
+                      isDense: true,
                       hintText: 'Pages...',
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,

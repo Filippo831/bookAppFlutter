@@ -28,6 +28,18 @@ class MyApp extends StatelessWidget {
             color: Color(0xffdedacd),
           ),
           buttonTheme: ButtonThemeData(buttonColor: Color(0xffdedacd)),
+          textTheme: TextTheme(
+              bodyText1: TextStyle(
+                  color: Color(0xffdedacd),
+              ),
+              bodyText2: TextStyle(
+                  color: Color(0xff505050),
+              ),
+              subtitle1: TextStyle(
+                  color: Color(0xffdedacd),
+              )
+
+          ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
               side: MaterialStateProperty.all<BorderSide>(
@@ -37,11 +49,6 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               backgroundColor: MaterialStateProperty.all(Color(0xffdedacd)),
-              textStyle: MaterialStateProperty.all<TextStyle>(
-                TextStyle(
-                  color: Color(0xffdedacd),
-                ),
-              ),
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(

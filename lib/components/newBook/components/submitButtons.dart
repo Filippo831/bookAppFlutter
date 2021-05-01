@@ -5,7 +5,10 @@ class SubmitButtonsComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width*0.8,
+        width: size.width*0.6,
+        constraints: BoxConstraints(
+            minWidth: 300,
+        ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -16,20 +19,27 @@ class SubmitButtonsComponent extends StatelessWidget {
                   MaterialStateProperty.all<Color>(Colors.transparent),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  side: BorderSide(width: 3),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  side: BorderSide(width: 2),
                 ),
               ),
             ),
             onPressed: () {},
-            child: Text('cancel'),
+            child: Text('cancel', style: Theme.of(context).textTheme.bodyText1),
           ),
           TextButton(
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(Size(100, 50)),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+              ),
             ),
             onPressed: () {},
-            child: Text('submit'),
+            child: Text('submit', style: Theme.of(context).textTheme.bodyText2,
+            ),
           ),
         ],
       ),
