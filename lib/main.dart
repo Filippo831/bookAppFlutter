@@ -29,16 +29,21 @@ class MyApp extends StatelessWidget {
           ),
           buttonTheme: ButtonThemeData(buttonColor: Color(0xffdedacd)),
           textTheme: TextTheme(
-              bodyText1: TextStyle(
-                  color: Color(0xffdedacd),
-              ),
-              bodyText2: TextStyle(
-                  color: Color(0xff505050),
-              ),
-              subtitle1: TextStyle(
-                  color: Color(0xffdedacd),
-              )
-
+            bodyText1: TextStyle(
+                fontSize: 16,
+              color: Color(0xffdedacd),
+            ),
+            bodyText2: TextStyle(
+                fontSize: 16,
+              color: Color(0xff505050),
+            ),
+            subtitle1: TextStyle(
+              color: Color(0xffdedacd),
+            ),
+            headline6: TextStyle(
+              fontSize: 16,
+              color: Color(0xffdedacd),
+            ),
           ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
@@ -52,8 +57,19 @@ class MyApp extends StatelessWidget {
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyle(
+              color: Color(0xbbdedacd),
+              height: 1.5,
+              fontSize: 16,
+            ),
             filled: true,
             fillColor: Color(0xff505050),
+            border: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            errorBorder: InputBorder.none,
+            disabledBorder: InputBorder.none,
+            isDense: true,
           ),
         ),
         home: HomePage(),

@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var bookList=Provider.of<BookProvider>(context);
+    var bookList = Provider.of<BookProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("bookApp", textAlign: TextAlign.left),
@@ -22,17 +22,20 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: Container(
-            child: Column(
-                // create a child for every book on booklist 
-                children: bookList.getBooks().map(
-                    (e) => CardComponent(
-                        title: e.title,
-                        author: e.author,
-                        pagesRead: e.pagesRead,
-                        totalPages: e.totalPages,
-                        bookImage: e.bookImage,
-                    ),
-                ).toList(),
+          child: Column(
+            // create a child for every book on booklist
+            children: bookList
+                .getBooks()
+                .map(
+                  (e) => CardComponent(
+                    title: e.title,
+                    author: e.author,
+                    pagesRead: e.pagesRead,
+                    totalPages: e.totalPages,
+                    bookImage: e.bookImage,
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),

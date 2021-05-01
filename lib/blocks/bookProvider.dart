@@ -7,14 +7,17 @@ class Book {
   String author;
   int pagesRead;
   int totalPages;
-  var bookImage;
+  IconData bookImage;
+  DateTime insertTime;
 
+  //constructor
   Book(
       {this.title,
       this.author,
       this.pagesRead,
       this.totalPages,
-      this.bookImage});
+      this.bookImage,
+      this.insertTime});
 }
 
 // bookProvider class
@@ -23,21 +26,26 @@ class BookProvider extends ChangeNotifier {
   final List booksList = [
     // 2 example element
     new Book(
-        title: '1984',
-        author: 'George Orwell',
-        pagesRead: 324,
-        totalPages: 543,
-        bookImage: Icons.next_week),
+      title: '1984',
+      author: 'George Orwell',
+      pagesRead: 324,
+      totalPages: 543,
+      bookImage: Icons.next_week,
+      insertTime: DateTime(2021, 2, 23, 2, 34),
+    ),
     new Book(
-        title: '1984',
-        author: 'George Orwell',
-        pagesRead: 324,
-        totalPages: 543,
-        bookImage: Icons.next_week),
+      title: '1984',
+      author: 'George Orwell',
+      pagesRead: 324,
+      totalPages: 543,
+      bookImage: Icons.next_week,
+      insertTime: DateTime(2021, 2, 23, 2, 34),
+    ),
   ];
-  
-  // return the book list 
+
+  // return the book list
   List getBooks() => booksList;
+
 
   // add a new book
   addBook(
@@ -45,17 +53,20 @@ class BookProvider extends ChangeNotifier {
     String author,
     int pagesRead,
     int totalPages,
-    var bookImage,
+    IconData bookImage,
+    DateTime insertTime,
   ) {
     // new book variable
     Book newBook = new Book(
-        title: title,
-        author: author,
-        pagesRead: pagesRead,
-        totalPages: totalPages,
-        bookImage: bookImage
+      title: title,
+      author: author,
+      pagesRead: pagesRead,
+      totalPages: totalPages,
+      bookImage: bookImage,
+      insertTime: insertTime,
     );
-    // add the book to the list 
+    // add the book to the list
     booksList.add(newBook);
+    notifyListeners();
   }
 }

@@ -3,6 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class TextInputsComponent extends StatelessWidget {
+  final Function setTitle;
+  final Function setAuthor;
+  final Function setPages;
+
+  const TextInputsComponent({
+    this.setTitle,
+    this.setAuthor,
+    this.setPages,
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -26,15 +36,12 @@ class TextInputsComponent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
-                    decoration: InputDecoration(
-                      isDense: true,
-                      hintText: 'Title...',
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
-                    ),
+                      onChanged: (text) {
+  setTitle(text);
+                      },
+                      decoration: InputDecoration (
+                          hintText: "Title..."
+                      ),
                   ),
                 )
               ],
@@ -55,14 +62,11 @@ class TextInputsComponent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
+                      onChanged: (text) {
+                        setAuthor(text);
+                      },
                     decoration: InputDecoration(
-                      isDense: true,
                       hintText: 'Author...',
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
                     ),
                   ),
                 )
@@ -73,7 +77,7 @@ class TextInputsComponent extends StatelessWidget {
           Container(
             width: size.width * 0.2,
             constraints: BoxConstraints(
-              minWidth: 80.0,
+              minWidth: 100.0,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,16 +92,13 @@ class TextInputsComponent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
+                      onChanged: (text) {
+                        setPages(text);
+                      },
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration: InputDecoration(
-                      isDense: true,
                       hintText: 'Pages...',
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
                     ),
                   ),
                 )
