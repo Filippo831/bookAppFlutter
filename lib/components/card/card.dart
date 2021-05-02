@@ -58,18 +58,48 @@ class _CardComponentState extends State<CardComponent> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.title, textAlign: TextAlign.left),
+                  Text(
+                    widget.title,
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
                   Spacer(),
-                  Text(widget.author, textAlign: TextAlign.left),
+                  Text(
+                    widget.author,
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                   Spacer(),
-                  Text("${widget.pagesRead} / ${widget.totalPages}",
-                      textAlign: TextAlign.left),
+                  Text(
+                    "${widget.pagesRead} / ${widget.totalPages}",
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                 ],
               ),
             ),
             Spacer(),
             // read icon
-            Icon(Icons.book),
+            TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.transparent),
+                      side: MaterialStateProperty.all<BorderSide>(
+                          BorderSide.none,
+                      ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      side: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+                child: Icon(
+                  Icons.book,
+                  size: 32,
+                  color: Theme.of(context).primaryColor,
+                )),
           ],
         ),
       ),

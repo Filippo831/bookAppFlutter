@@ -44,6 +44,11 @@ class MyApp extends StatelessWidget {
               fontSize: 16,
               color: Color(0xffdedacd),
             ),
+            headline5: TextStyle(
+
+              fontSize: 20,
+              color: Color(0xffdedacd),
+            )
           ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
