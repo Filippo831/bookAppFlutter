@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
-class TextInputsComponent extends StatelessWidget {
-  final Function setTitle;
-  final Function setAuthor;
-  final Function setPages;
-
+class TextInputsComponent extends StatefulWidget {
+  final bookList;
   const TextInputsComponent({
-    this.setTitle,
-    this.setAuthor,
-    this.setPages,
     Key key,
+    this.bookList,
   }) : super(key: key);
+
+  @override
+  _TextInputsComponentState createState() => _TextInputsComponentState();
+}
+
+class _TextInputsComponentState extends State<TextInputsComponent> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -37,11 +37,9 @@ class TextInputsComponent extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
                       onChanged: (text) {
-  setTitle(text);
+                        widget.bookList.setTitle(text);
                       },
-                      decoration: InputDecoration (
-                          hintText: "Title..."
-                      ),
+                    decoration: InputDecoration(hintText: "Title..."),
                   ),
                 )
               ],
@@ -62,9 +60,9 @@ class TextInputsComponent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
-                      onChanged: (text) {
-                        setAuthor(text);
-                      },
+                    onChanged: (text) {
+                      widget.bookList.setAuthor(text);
+                    },
                     decoration: InputDecoration(
                       hintText: 'Author...',
                     ),
@@ -92,9 +90,9 @@ class TextInputsComponent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: TextField(
-                      onChanged: (text) {
-                        setPages(text);
-                      },
+                    onChanged: (text) {
+                      widget.bookList.setPages(int.parse(text));
+                    },
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration: InputDecoration(

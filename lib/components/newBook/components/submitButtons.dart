@@ -1,6 +1,18 @@
+import 'package:bookapp/blocks/bookProvider.dart';
 import 'package:flutter/material.dart';
 
-class SubmitButtonsComponent extends StatelessWidget {
+class SubmitButtonsComponent extends StatefulWidget {
+  final bookList;
+  const SubmitButtonsComponent({
+    Key key,
+    this.bookList,
+  }) : super(key: key);
+
+  @override
+  _SubmitButtonsComponentState createState() => _SubmitButtonsComponentState();
+}
+
+class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -37,7 +49,9 @@ class SubmitButtonsComponent extends StatelessWidget {
                   ),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              widget.bookList.addBook();
+            },
             child: Text('submit', style: Theme.of(context).textTheme.bodyText2,
             ),
           ),

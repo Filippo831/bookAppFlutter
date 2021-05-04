@@ -11,46 +11,16 @@ class InputFormComponent extends StatefulWidget {
 }
 
 class _InputFormComponentState extends State<InputFormComponent> {
-  String title;
-  String author;
-  int totalPages;
-  IconData bookImage;
-
   var bookList;
-
-  void setTitle(String data) {
-    setState(() {
-      title = data;
-    });
-  }
-
-  void setAuthor(String data) {
-    setState(() {
-      author = data;
-    });
-  }
-
-  void setPages(int data) {
-    setState(() {
-      totalPages = data;
-    });
-  }
-
-  void setImage(IconData data) {
-    setState(() {
-      bookImage = data;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     bookList=Provider.of<BookProvider>(context);
     return Container(
       child: Column(
         children: [
-          BookImageInputComponent(),
-          TextInputsComponent(),
-          SubmitButtonsComponent(),
+          BookImageInputComponent(bookList: bookList),
+          TextInputsComponent(bookList:bookList),
+          SubmitButtonsComponent(bookList:bookList),
         ],
       ),
     );

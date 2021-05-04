@@ -20,6 +20,13 @@ class Book {
       this.insertTime});
 }
 
+String title;
+String author;
+int pagesRead;
+int totalPages;
+IconData bookImage;
+DateTime insertTime;
+
 // bookProvider class
 class BookProvider extends ChangeNotifier {
   // book list
@@ -46,21 +53,29 @@ class BookProvider extends ChangeNotifier {
   // return the book list
   List getBooks() => booksList;
 
+  void setTitle(String data) {
+    title = data;
+  }
+
+  void setAuthor(String data) {
+    author = data;
+  }
+
+  void setPages(int data) {
+    totalPages = data;
+  }
+
+  void setImage(IconData data) {
+    bookImage = data;
+  }
 
   // add a new book
-  addBook(
-    String title,
-    String author,
-    int pagesRead,
-    int totalPages,
-    IconData bookImage,
-    DateTime insertTime,
-  ) {
+  addBook() {
     // new book variable
     Book newBook = new Book(
       title: title,
       author: author,
-      pagesRead: pagesRead,
+      pagesRead: 0,
       totalPages: totalPages,
       bookImage: bookImage,
       insertTime: insertTime,

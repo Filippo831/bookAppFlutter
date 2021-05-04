@@ -1,8 +1,11 @@
+import 'package:bookapp/blocks/bookProvider.dart';
 import 'package:flutter/material.dart';
 
 class BookImageInputComponent extends StatelessWidget {
+  final bookList;
   const BookImageInputComponent({
     Key key,
+    this.bookList,
   }) : super(key: key);
 
   @override
