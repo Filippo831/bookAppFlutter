@@ -17,12 +17,12 @@ class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width*0.6,
-        constraints: BoxConstraints(
-            minWidth: 300,
-        ),
+      width: size.width * 0.6,
+      constraints: BoxConstraints(
+        minWidth: 300,
+      ),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           TextButton(
             style: ButtonStyle(
@@ -43,16 +43,17 @@ class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(Size(100, 50)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-
+                RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
+                ),
               ),
             ),
             onPressed: () {
               widget.bookList.addBook();
             },
-            child: Text('submit', style: Theme.of(context).textTheme.bodyText2,
+            child: Text(
+              'submit',
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           ),
         ],

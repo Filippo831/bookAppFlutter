@@ -33,7 +33,9 @@ class BookImageInputComponent extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(25)),
                 child: TextButton(
-                  onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/newBookImage');
+                    },
                   child: Icon(Icons.drafts,
                       color: Theme.of(context).accentColor),
                 ),
