@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class NewBookImageComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text("newBookImage", textAlign: TextAlign.left),
@@ -17,18 +18,23 @@ class NewBookImageComponent extends StatelessWidget {
           child: Column(
             children: [
               ImageInputFormComponent(),
-              SingleChildScrollView(
+              Container(
+                height: 30,
+              ),
+              Expanded(
                 child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                   child: GridView.count(
                     primary: false,
-                    crossAxisCount: 3,
+                    crossAxisCount: (size.width / 150).round(),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    children: [
-                      ImageInputCardComponent(),
-                      ImageInputCardComponent(),
-                      ImageInputCardComponent(),
-                    ],
+                    children: List.generate(
+                      30,
+                      (index) {
+                        return ImageInputCardComponent();
+                      },
+                    ),
                   ),
                 ),
               ),

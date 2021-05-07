@@ -7,6 +7,7 @@ class ImageInputCardComponent extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: Theme.of(context).accentColor,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
     );
   }
