@@ -5,8 +5,9 @@ class ImageInputFormComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: size.width * 0.1),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
             width: size.width * 0.6,
@@ -19,8 +20,13 @@ class ImageInputFormComponent extends StatelessWidget {
               ),
             ),
           ),
-          TextButton(onPressed: () {}, child: Text('submit'),),
-
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              'submit',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+          ),
         ],
       ),
     );

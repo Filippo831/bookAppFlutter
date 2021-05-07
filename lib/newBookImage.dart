@@ -1,3 +1,4 @@
+import 'package:bookapp/components/newBookImage/imageInputCard.dart';
 import 'package:bookapp/components/newBookImage/imageInputForm.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,28 @@ class NewBookImageComponent extends StatelessWidget {
         titleSpacing: 40,
       ),
       body: SafeArea(
-        child: ImageInputFormComponent(),
+        child: Container(
+          child: Column(
+            children: [
+              ImageInputFormComponent(),
+              SingleChildScrollView(
+                child: Container(
+                  child: GridView.count(
+                    primary: false,
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: [
+                      ImageInputCardComponent(),
+                      ImageInputCardComponent(),
+                      ImageInputCardComponent(),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
