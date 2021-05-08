@@ -1,4 +1,5 @@
 import 'package:bookapp/blocks/bookProvider.dart';
+import 'package:bookapp/blocks/imageProvider.dart';
 import 'package:bookapp/homePage.dart';
 import 'package:bookapp/newBook.dart';
 import 'package:bookapp/newBookImage.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ListenableProvider<BookProvider>(create: (_) => BookProvider())
+        ListenableProvider<BookProvider>(create: (_) => BookProvider()),
+        ListenableProvider<MyImageProvider>(create: (_) => MyImageProvider()),
       ],
       // export all the theme in a separate file
       child: MaterialApp(
@@ -30,27 +32,25 @@ class MyApp extends StatelessWidget {
           ),
           buttonTheme: ButtonThemeData(buttonColor: Color(0xffdedacd)),
           textTheme: TextTheme(
-            bodyText1: TextStyle(
+              bodyText1: TextStyle(
                 fontSize: 16,
-              color: Color(0xffdedacd),
-            ),
-            bodyText2: TextStyle(
+                color: Color(0xffdedacd),
+              ),
+              bodyText2: TextStyle(
                 fontSize: 16,
-              color: Color(0xff505050),
-            ),
-            subtitle1: TextStyle(
-              color: Color(0xffdedacd),
-            ),
-            headline6: TextStyle(
-              fontSize: 16,
-              color: Color(0xffdedacd),
-            ),
-            headline5: TextStyle(
-
-              fontSize: 20,
-              color: Color(0xffdedacd),
-            )
-          ),
+                color: Color(0xff505050),
+              ),
+              subtitle1: TextStyle(
+                color: Color(0xffdedacd),
+              ),
+              headline6: TextStyle(
+                fontSize: 16,
+                color: Color(0xffdedacd),
+              ),
+              headline5: TextStyle(
+                fontSize: 20,
+                color: Color(0xffdedacd),
+              )),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
               side: MaterialStateProperty.all<BorderSide>(
