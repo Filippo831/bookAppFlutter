@@ -35,15 +35,22 @@ class _CardComponentState extends State<CardComponent> {
             ),
           ],
         ),
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
         margin: EdgeInsets.symmetric(vertical: 10),
-        height: 100,
+        height: size.height / 7,
+        constraints: BoxConstraints(
+          minHeight: 60,
+          maxHeight: 100,
+        ),
         width: size.width * 0.8,
         child: Row(
           children: [
             // left image
             Container(
-              width: 60,
+              width: size.width * 0.15,
+              constraints: BoxConstraints(
+                maxWidth: 60,
+              ),
               height: size.height,
               margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
               decoration: BoxDecoration(
@@ -54,24 +61,27 @@ class _CardComponentState extends State<CardComponent> {
             ),
             // texts in the middle
             Container(
-              height: 80,
+              margin: EdgeInsets.symmetric(vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.title,
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   Spacer(),
                   Text(
                     widget.author,
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                   Spacer(),
                   Text(
                     "${widget.pagesRead} / ${widget.totalPages}",
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
@@ -80,14 +90,16 @@ class _CardComponentState extends State<CardComponent> {
             ),
             Spacer(),
             // read icon
-            TextButton(
+            Container(
+              padding: EdgeInsets.all(0),
+              child: TextButton(
                 onPressed: () {},
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.transparent),
-                      side: MaterialStateProperty.all<BorderSide>(
-                          BorderSide.none,
-                      ),
+                  side: MaterialStateProperty.all<BorderSide>(
+                    BorderSide.none,
+                  ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -99,7 +111,9 @@ class _CardComponentState extends State<CardComponent> {
                   Icons.book,
                   size: 32,
                   color: Theme.of(context).primaryColor,
-                )),
+                ),
+              ),
+            ),
           ],
         ),
       ),
