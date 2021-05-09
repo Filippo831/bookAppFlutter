@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var bookList = Provider.of<BookProvider>(context);
+    List<bool> isOpenList;
     return Scaffold(
       appBar: AppBar(
         title: Text("bookApp", textAlign: TextAlign.left),
@@ -22,9 +23,14 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: Container(
-          child: Column(
+          child: ExpansionPanelList(
             // create a child for every book on booklist
-            children: bookList
+      expansionCallback: (i, isOpen) => 
+        setState(() => 
+          isOpenList[i] = !isOpen
+        ),
+            children: [
+              bookList
                 .getBooks()
                 .map(
                   (e) => CardComponent(
@@ -36,6 +42,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
                 .toList(),
+],
           ),
         ),
       ),
