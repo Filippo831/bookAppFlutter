@@ -18,7 +18,13 @@ class _HomePageState extends State<HomePage> {
         titleSpacing: 40,
       ),
       body: SafeArea(
-          child: CardComponent(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CardComponent(),
+                ],
+              ),
+          ),
       ),
       bottomNavigationBar: SafeArea(
         child: NavbarComponent(),

@@ -12,31 +12,30 @@ class CardComponent extends StatefulWidget {
 class _CardComponentState extends State<CardComponent> {
   @override
   Widget build(BuildContext context) {
-    var bookList = Provider.of<BookProvider>(context);
+    final bookList = Provider.of<BookProvider>(context);
     var size = MediaQuery.of(context).size;
     List<bool> isOpenList;
-    return Container(
-      child: ExpansionPanelList(
-          children: bookList
-              .getBooks()
-              .map(
-                (e) => ExpansionPanel(
-                  isExpanded: isOpenList[0],
-                  headerBuilder: (BuildContext context, bool isOpen) {
-                    return CardHeader(
-                        title: e.title,
-                        author: e.author,
-                        pagesRead: e.pagesRead,
-                        totalPages: e.totalPages,
-                        bookImage: e.bookImage);
-                  },
-                  body: Container(
-                    height: 100,
-                  ),
-                ),
-              ).toList(),
-          expansionCallback: (i, isOpen) =>
-              setState(() => isOpenList[i] = !isOpen)),
+    return ExpansionPanelList(
+      children: bookList
+          .getBooks()
+          .map(
+            (var e) => ExpansionPanel(
+              isExpanded: isOpenList[0],
+              headerBuilder: (BuildContext context, bool isOpen) {
+                return CardHeader(
+                    title: e.title,
+                    author: e.author,
+                    pagesRead: e.pagesRead,
+                    totalPages: e.totalPages,
+                    bookImage: e.bookImage);
+              },
+              body: Container(
+                height: 100,
+              ),
+            ),
+          )
+          .toList(),
+      expansionCallback: (i, isOpen) => setState(() => isOpenList[i] = !isOpen),
     );
   }
 }
