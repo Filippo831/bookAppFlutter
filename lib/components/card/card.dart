@@ -10,32 +10,46 @@ class CardComponent extends StatefulWidget {
 }
 
 class _CardComponentState extends State<CardComponent> {
+  List<bool> isOpenList;
+  void inizializeOpenList(int length) {
+    setState(() {
+      isOpenList = List.filled(length, false);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final bookList = Provider.of<BookProvider>(context);
+    var bookList = Provider.of<BookProvider>(context);
     var size = MediaQuery.of(context).size;
-    List<bool> isOpenList;
-    return ExpansionPanelList(
+    return Column(
       children: bookList
           .getBooks()
-          .map(
-            (var e) => ExpansionPanel(
-              isExpanded: isOpenList[0],
-              headerBuilder: (BuildContext context, bool isOpen) {
-                return CardHeader(
-                    title: e.title,
-                    author: e.author,
-                    pagesRead: e.pagesRead,
-                    totalPages: e.totalPages,
-                    bookImage: e.bookImage);
-              },
-              body: Container(
-                height: 100,
-              ),
-            ),
-          )
+          .asMap()
+          .map((index, e) {
+            if (isOpenList == null || isOpenList.length == 0) {
+              inizializeOpenList(bookList.getBooks().length);
+            }
+            return MapEntry(
+              index,
+              //ExpansionPanel(
+                //isExpanded: isOpenList[index],
+                //headerBuilder: (BuildContext context, bool isOpen) {
+                  CardHeader(
+                      title: e.title,
+                      author: e.author,
+                      pagesRead: e.pagesRead,
+                      totalPages: e.totalPages,
+                      bookImage: e.bookImage),
+                //},
+                //body: Container(
+                  //height: 100,
+                //),
+              //),
+            );
+          })
+          .values
           .toList(),
-      expansionCallback: (i, isOpen) => setState(() => isOpenList[i] = !isOpen),
+      //expansionCallback: (i, isOpen) => setState(() => isOpenList[i] = !isOpen),
     );
   }
 }
