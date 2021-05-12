@@ -31,25 +31,16 @@ class _CardComponentState extends State<CardComponent> {
             }
             return MapEntry(
               index,
-              //ExpansionPanel(
-                //isExpanded: isOpenList[index],
-                //headerBuilder: (BuildContext context, bool isOpen) {
-                  CardHeader(
-                      title: e.title,
-                      author: e.author,
-                      pagesRead: e.pagesRead,
-                      totalPages: e.totalPages,
-                      bookImage: e.bookImage),
-                //},
-                //body: Container(
-                  //height: 100,
-                //),
-              //),
+              CardHeader(
+                  title: e.title,
+                  author: e.author,
+                  pagesRead: e.pagesRead,
+                  totalPages: e.totalPages,
+                  bookImage: e.bookImage),
             );
           })
           .values
           .toList(),
-      //expansionCallback: (i, isOpen) => setState(() => isOpenList[i] = !isOpen),
     );
   }
 }
