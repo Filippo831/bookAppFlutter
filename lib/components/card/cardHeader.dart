@@ -1,3 +1,7 @@
+import 'package:bookapp/components/card/cardComponents/bottom.dart';
+import 'package:bookapp/components/card/cardComponents/leading.dart';
+import 'package:bookapp/components/card/cardComponents/text.dart';
+import 'package:bookapp/components/card/cardComponents/trailing.dart';
 import 'package:flutter/material.dart';
 
 class CardHeader extends StatelessWidget {
@@ -47,9 +51,7 @@ class CardHeader extends StatelessWidget {
           subtitle: SubtitleWidget(author: author, pagesRead: pagesRead, totalPages: totalPages),
           trailing: TrailingWidget(),
           children: [
-            ListTile(
-                title: Text("ciao"),
-            ),
+            CardBottomComponent(),
           ],
         ),
       ),
@@ -57,107 +59,3 @@ class CardHeader extends StatelessWidget {
   }
 }
 
-class TrailingWidget extends StatelessWidget {
-  const TrailingWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(0),
-      child: TextButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all<Color>(Colors.transparent),
-          side: MaterialStateProperty.all<BorderSide>(
-            BorderSide.none,
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(40)),
-              side: BorderSide(color: Colors.transparent),
-            ),
-          ),
-        ),
-        child: Icon(
-          Icons.book,
-          size: 32,
-          color: Theme.of(context).primaryColor,
-        ),
-      ),
-    );
-  }
-}
-
-class SubtitleWidget extends StatelessWidget {
-  const SubtitleWidget({
-    Key key,
-    @required this.author,
-    @required this.pagesRead,
-    @required this.totalPages,
-  }) : super(key: key);
-
-  final String author;
-  final int pagesRead;
-  final int totalPages;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            author,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          Container(height: 10,),
-          Text(
-            "${pagesRead} / ${totalPages}",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class LeadingWidget extends StatelessWidget {
-  const LeadingWidget({
-    Key key,
-    @required this.size,
-    @required this.bookImage,
-  }) : super(key: key);
-
-  final Size size;
-  final bookImage;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Container(
-            padding: EdgeInsets.zero,
-            width: size.width * 0.15,
-            constraints: BoxConstraints(
-              maxWidth: 60,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),
-            child: Icon(bookImage),
-          ),
-        ),
-      ],
-    );
-  }
-}
