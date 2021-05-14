@@ -4,7 +4,7 @@ import 'package:bookapp/components/card/cardComponents/text.dart';
 import 'package:bookapp/components/card/cardComponents/trailing.dart';
 import 'package:flutter/material.dart';
 
-class CardHeader extends StatelessWidget {
+class CardHeader extends StatefulWidget {
   const CardHeader({
     Key key,
     @required this.title,
@@ -20,6 +20,12 @@ class CardHeader extends StatelessWidget {
   final int totalPages;
   final bookImage;
 
+  @override
+  _CardHeaderState createState() => _CardHeaderState();
+}
+
+class _CardHeaderState extends State<CardHeader> {
+  bool isOpen = false;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -41,15 +47,25 @@ class CardHeader extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         child: ExpansionTile(
-          leading: LeadingWidget(size: size, bookImage: bookImage),
+          onExpansionChanged: (value) {
+            setState(() {
+              isOpen = value;
+            });
+          },
+          leading: LeadingWidget(size: size, bookImage: widget.bookImage),
           title: Text(
-            title,
+            widget.title,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headline5,
           ),
-          subtitle: SubtitleWidget(author: author, pagesRead: pagesRead, totalPages: totalPages),
-          trailing: TrailingWidget(),
+          subtitle: SubtitleWidget(
+              author: widget.author,
+              pagesRead: widget.pagesRead,
+              totalPages: widget.totalPages),
+          trailing: Visibility(
+              visible: !isOpen,
+              child: TrailingWidget()),
           children: [
             CardBottomComponent(),
           ],
@@ -58,4 +74,3 @@ class CardHeader extends StatelessWidget {
     );
   }
 }
-
