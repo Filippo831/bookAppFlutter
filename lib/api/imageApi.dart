@@ -6,16 +6,19 @@ import 'dart:convert';
 //'x-rapidapi-host': 'bing-image-search1.p.rapidapi.com',
 //'x-rapidapi-key': '381ea1fe6fmsha0118ae3803305dp1abd96jsn5ba87b7fb627',
 
-Future<Image> fetchImages(String title) async {
-  final response = 
-  await http.get(
+Future<List<Image>> fetchImages(String title) async {
+  final response = await http.get(
       Uri.http('bing-image-search1.p.rapidapi.com', '/images', {'q': title}),
       headers: {
         'x-rapidapi-host': 'bing-image-search1.p.rapidapi.com',
         'x-rapidapi-key': '381ea1fe6fmsha0118ae3803305dp1abd96jsn5ba87b7fb627',
       });
   if (response.statusCode == 200) {
-    return Image.fromJson(jsonDecode(response.body));
+    var jsonFile = jsonDecode(response.body);
+    jsonFile.values.forEach((value) {
+      imageList.add(Image.fromJson(value));
+    });
+    return imageList;
   } else {
     throw Exception('failed to load images');
   }
@@ -32,15 +35,20 @@ class Image {
     this.accentColor,
   });
   factory Image.fromJson(Map<String, dynamic> json) {
-    return json['value'].forEach(
-      (element) {
-        imageList.add(
-          Image(
-            contentUrl: element['contentUrl'],
-            accentColor: element['accentColor'],
-          ),
-        );
-      },
+    return Image(
+      contentUrl: json['contentUrl'],
+      accentColor: json['accentColor'],
     );
+    //json['value'].forEach(
+    //(element) {
+    //imageList.add(
+    //Image(
+    //contentUrl: element['contentUrl'],
+    //accentColor: element['accentColor'],
+    //),
+    //);
+    //},
+    //);
+    //return imageList;
   }
 }

@@ -4,9 +4,9 @@ import 'package:bookapp/api/imageApi.dart';
 
 String searchInput = "";
 class MyImageProvider extends ChangeNotifier {
-  final List imageList = fetchImages("1984");
+  var imageList = fetchImages("1984");
 
-  List getImages() => images;
+  getImages() => imageList;
 
   void setSearchInputState(String value) {
     searchInput = value;
