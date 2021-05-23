@@ -21,26 +21,30 @@ class _CardComponentState extends State<CardComponent> {
   Widget build(BuildContext context) {
     var bookList = Provider.of<BookProvider>(context);
     var size = MediaQuery.of(context).size;
-    return Column(
-      children: bookList
-          .getBooks()
-          .asMap()
-          .map((index, e) {
-            if (isOpenList == null || isOpenList.length == 0) {
-              inizializeOpenList(bookList.getBooks().length);
-            }
-            return MapEntry(
-              index,
-              CardHeader(
-                  title: e.title,
-                  author: e.author,
-                  pagesRead: e.pagesRead,
-                  totalPages: e.totalPages,
-                  bookImage: e.bookImage),
-            );
-          })
-          .values
-          .toList(),
-    );
+    if (bookList != null) {
+      return Column(
+        children: bookList
+            .getBooks()
+            .asMap()
+            .map((index, e) {
+              if (isOpenList == null || isOpenList.length == 0) {
+                inizializeOpenList(bookList.getBooks().length);
+              }
+              return MapEntry(
+                index,
+                CardHeader(
+                    title: e.title,
+                    author: e.author,
+                    pagesRead: e.pagesRead,
+                    totalPages: e.totalPages,
+                    bookImage: e.bookImage),
+              );
+            })
+            .values
+            .toList(),
+      );
+    } else {
+      return Text('nothing to read');
+    }
   }
 }

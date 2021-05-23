@@ -36,8 +36,10 @@ class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
                 ),
               ),
             ),
-            onPressed: () {},
-            child: Text('cancel', style: Theme.of(context).textTheme.bodyText1),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('cancel', style: Theme.of(context).textTheme.bodyText1,),
           ),
           TextButton(
             style: ButtonStyle(
@@ -50,6 +52,7 @@ class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
             ),
             onPressed: () {
               widget.bookList.addBook();
+              Navigator.pop(context);
             },
             child: Text(
               'submit',
