@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,32 +39,42 @@ class BookProvider extends ChangeNotifier {
   List booksList = [
     // 2 example element
     //new Book(
-      //title: '1984',
-      //author: 'George Orwell',
-      //pagesRead: 324,
-      //totalPages: 543,
-      //bookImage: Icons.next_week,
-      //insertTime: DateTime(2021, 2, 23, 2, 34),
+    //title: '1984',
+    //author: 'George Orwell',
+    //pagesRead: 324,
+    //totalPages: 543,
+    //bookImage: Icons.next_week,
+    //insertTime: DateTime(2021, 2, 23, 2, 34),
     //),
     //new Book(
-      //title: '1984',
-      //author: 'George Orwell',
-      //pagesRead: 324,
-      //totalPages: 543,
-      //bookImage: Icons.next_week,
-      //insertTime: DateTime(2021, 2, 23, 2, 34),
+    //title: '1984',
+    //author: 'George Orwell',
+    //pagesRead: 324,
+    //totalPages: 543,
+    //bookImage: Icons.next_week,
+    //insertTime: DateTime(2021, 2, 23, 2, 34),
     //),
   ];
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
 
-  Future getBooksFromPreferences() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return jsonDecode(prefs.getString('books'));
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/books.json');
+  }
+
+  Future getBooksFromFile() async {
+    File file = _localFile;
+    return jsonDecode(file.readAsStringSync(file));
   }
 
   // return the book list
   List getBooks() {
     if ((booksList == null) && (booksList.length == 0)) {
-      getBooksFromPreferences().then((value) {
+      getBooksFromFile().then((value) {
         booksList = value;
       });
     }
