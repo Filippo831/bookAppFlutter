@@ -3,6 +3,7 @@ import 'package:bookapp/blocks/imageProvider.dart';
 import 'package:bookapp/homePage.dart';
 import 'package:bookapp/newBook.dart';
 import 'package:bookapp/newBookImage.dart';
+import 'package:bookapp/readPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
           '/main': (BuildContext context) => HomePage(),
           '/newBook': (BuildContext context) => NewBookComponent(),
           '/newBookImage': (BuildContext context) => NewBookImageComponent(),
+          '/readPage': (BuildContext context) => ReadPageComponent()
         },
       ),
     );

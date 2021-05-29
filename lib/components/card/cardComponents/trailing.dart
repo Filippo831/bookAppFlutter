@@ -10,7 +10,9 @@ class TrailingWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(0),
       child: TextButton(
-        onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/readPage');
+          },
         style: ButtonStyle(
           backgroundColor:
               MaterialStateProperty.all<Color>(Colors.transparent),

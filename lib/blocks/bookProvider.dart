@@ -38,46 +38,46 @@ class BookProvider extends ChangeNotifier {
   // book list
   List booksList = [
     // 2 example element
-    //new Book(
-    //title: '1984',
-    //author: 'George Orwell',
-    //pagesRead: 324,
-    //totalPages: 543,
-    //bookImage: Icons.next_week,
-    //insertTime: DateTime(2021, 2, 23, 2, 34),
-    //),
-    //new Book(
-    //title: '1984',
-    //author: 'George Orwell',
-    //pagesRead: 324,
-    //totalPages: 543,
-    //bookImage: Icons.next_week,
-    //insertTime: DateTime(2021, 2, 23, 2, 34),
-    //),
+    new Book(
+      title: '1984',
+      author: 'George Orwell',
+      pagesRead: 324,
+      totalPages: 543,
+      bookImage: Icons.next_week,
+      insertTime: DateTime(2021, 2, 23, 2, 34),
+    ),
+    new Book(
+      title: '1984',
+      author: 'George Orwell',
+      pagesRead: 324,
+      totalPages: 543,
+      bookImage: Icons.next_week,
+      insertTime: DateTime(2021, 2, 23, 2, 34),
+    ),
   ];
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
+  //Future<String> get _localPath async {
+  //final directory = await getApplicationDocumentsDirectory();
 
-    return directory.path;
-  }
+  //return directory.path;
+  //}
 
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/books.json');
-  }
+  //Future<File> get _localFile async {
+  //final path = await _localPath;
+  //return File('$path/books.json');
+  //}
 
-  Future getBooksFromFile() async {
-    File file = _localFile;
-    return jsonDecode(file.readAsStringSync(file));
-  }
+  //Future getBooksFromFile() async {
+  //File file = _localFile;
+  //return jsonDecode(file.readAsStringSync(file));
+  //}
 
   // return the book list
   List getBooks() {
-    if ((booksList == null) && (booksList.length == 0)) {
-      getBooksFromFile().then((value) {
-        booksList = value;
-      });
-    }
+    //if ((booksList == null) && (booksList.length == 0)) {
+    //getBooksFromFile().then((value) {
+    //booksList = value;
+    //});
+    //}
     return booksList;
   }
 
