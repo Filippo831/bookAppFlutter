@@ -55,21 +55,6 @@ class BookProvider extends ChangeNotifier {
       insertTime: DateTime(2021, 2, 23, 2, 34),
     ),
   ];
-  //Future<String> get _localPath async {
-  //final directory = await getApplicationDocumentsDirectory();
-
-  //return directory.path;
-  //}
-
-  //Future<File> get _localFile async {
-  //final path = await _localPath;
-  //return File('$path/books.json');
-  //}
-
-  //Future getBooksFromFile() async {
-  //File file = _localFile;
-  //return jsonDecode(file.readAsStringSync(file));
-  //}
 
   // return the book list
   List getBooks() {
