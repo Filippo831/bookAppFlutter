@@ -1,16 +1,23 @@
+import 'package:bookapp/blocks/bookProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TrailingWidget extends StatelessWidget {
   const TrailingWidget({
     Key key,
+    this.index,
   }) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    var bookProvider = Provider.of<BookProvider>(context);
     return Container(
       padding: EdgeInsets.all(0),
       child: TextButton(
           onPressed: () {
+            bookProvider.setIndex(index);
             Navigator.pushNamed(context, '/readPage');
           },
         style: ButtonStyle(

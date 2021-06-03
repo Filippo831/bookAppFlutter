@@ -37,7 +37,8 @@ class _CardComponentState extends State<CardComponent> {
                     author: e.author,
                     pagesRead: e.pagesRead,
                     totalPages: e.totalPages,
-                    bookImage: e.bookImage),
+                    bookImage: e.bookImage,
+                    index:index),
               );
             })
             .values

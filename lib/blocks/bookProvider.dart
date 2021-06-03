@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // single book class
+int index;
+
 class Book {
   String title;
   String author;
@@ -58,13 +60,9 @@ class BookProvider extends ChangeNotifier {
 
   // return the book list
   List getBooks() {
-    //if ((booksList == null) && (booksList.length == 0)) {
-    //getBooksFromFile().then((value) {
-    //booksList = value;
-    //});
-    //}
     return booksList;
   }
+  int getIndex() => index;
 
   void setTitle(String data) {
     title = data;
@@ -80,6 +78,10 @@ class BookProvider extends ChangeNotifier {
 
   void setImage(IconData data) {
     bookImage = data;
+  }
+
+  void setIndex(int data) {
+    index = data;
   }
 
   // add a new book

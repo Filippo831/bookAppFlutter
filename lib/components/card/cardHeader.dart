@@ -12,6 +12,7 @@ class CardHeader extends StatefulWidget {
     @required this.pagesRead,
     @required this.totalPages,
     @required this.bookImage,
+    @required this.index,
   }) : super(key: key);
 
   final String title;
@@ -19,6 +20,7 @@ class CardHeader extends StatefulWidget {
   final int pagesRead;
   final int totalPages;
   final bookImage;
+  final int index;
 
   @override
   _CardHeaderState createState() => _CardHeaderState();
@@ -65,9 +67,9 @@ class _CardHeaderState extends State<CardHeader> {
               totalPages: widget.totalPages),
           trailing: Visibility(
               visible: !isOpen,
-              child: TrailingWidget()),
+              child: TrailingWidget(index:widget.index)),
           children: [
-            CardBottomComponent(),
+            CardBottomComponent(index:widget.index),
           ],
         ),
       ),
