@@ -1,4 +1,5 @@
 import 'package:bookapp/blocks/bookProvider.dart';
+import 'package:bookapp/components/generalComponents/bigButton.dart';
 import 'package:flutter/material.dart';
 
 class SubmitButtonsComponent extends StatefulWidget {
@@ -24,40 +25,21 @@ class _SubmitButtonsComponentState extends State<SubmitButtonsComponent> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          TextButton(
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all(Size(100, 50)),
-              backgroundColor:
-                  MaterialStateProperty.all<Color>(Colors.transparent),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  side: BorderSide(width: 2),
-                ),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('cancel', style: Theme.of(context).textTheme.bodyText1,),
+          BigButtonComponent(
+              text: 'cancel',
+              theme: Theme.of(context).textTheme.bodyText1,
+              action: () {
+                Navigator.pop(context);
+              },
+              bgColor: Colors.transparent,
           ),
-          TextButton(
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all(Size(100, 50)),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-              ),
-            ),
-            onPressed: () {
-              widget.bookList.addBook();
-              Navigator.pop(context);
-            },
-            child: Text(
-              'submit',
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
+          BigButtonComponent(
+              text: 'submit',
+              theme: Theme.of(context).textTheme.bodyText2,
+              action: () {
+                widget.bookList.addBook();
+                Navigator.pop(context);
+              },
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:bookapp/blocks/bookProvider.dart';
+import 'package:bookapp/components/readPage/buttons.dart';
 import 'package:bookapp/components/readPage/title.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,15 @@ class _ReadPageState extends State<ReadPageComponent> {
         titleSpacing: 40,
       ),
       body: Container(
-          child: ReadPageTitleComponent(selectedBook: selectedBook),
+        child: Column(
+          children: [
+            ReadPageTitleComponent(
+                selectedBook: selectedBook != null
+                    ? selectedBook
+                    : bookProvider.getBooks()[0]),
+            ReadPageButtonsComponents(),
+          ],
+        ),
       ),
     );
   }
